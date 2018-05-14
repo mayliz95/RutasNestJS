@@ -1,5 +1,5 @@
 import {Controller, Get} from "@nestjs/common";
-const fs = require('fs')
+const fs = require('fs');
 
 @Controller()
 export class InicioController {

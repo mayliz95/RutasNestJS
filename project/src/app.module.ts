@@ -5,8 +5,9 @@ import {InicioController} from "./inicio.controller";
 import {PreguntasFrecuentesController} from "./preguntasFrecuentes.Controller";
 
 @Module({
-  imports: [],
-  controllers: [AppController, InicioController, PreguntasFrecuentesController],
-  providers: [AppService],
+    imports: [],
+    controllers: [AppController, InicioController, PreguntasFrecuentesController],
+    //controllers: [AppController],
+    providers: [AppService],
 })
 export class AppModule {}

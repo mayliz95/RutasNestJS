@@ -1,6 +1,10 @@
-import {Controller} from "@nestjs/common";
+import {Controller, Get} from "@nestjs/common";
 
 @Controller('Inicio')
 export class InicioController {
-    
+
+    constructor() {}
+
+    //@Get('Home')
+
 }

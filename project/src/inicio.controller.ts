@@ -1,11 +1,13 @@
-import {Controller, Get} from "@nestjs/common";
+import {Controller, Get, HttpCode} from "@nestjs/common";
 const fs = require('fs');
 
 @Controller()
 export class InicioController {
 
     constructor() {}
+
     @Get('Home')
+    @HttpCode(200)
     root(): string {
         //console.log('Entro al metodo')
         let htmlHeader = fs.readFileSync(__dirname +'/html/header.html', 'utf8', );
@@ -14,5 +16,5 @@ export class InicioController {
         let html = htmlHeader + htmlCOntenido + htmlFooter;
         //console.log(html);
         return html;
-        }
+    }
 }

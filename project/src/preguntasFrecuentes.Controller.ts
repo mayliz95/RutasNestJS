@@ -3,21 +3,20 @@ const fs = require('fs');
 
 @Controller('PreguntasFrecuentes')
 export class PreguntasFrecuentesController {
+    private _preguntasFrecuentes: PreguntaFrecuente [] = [];
 
-    preguntasFrecuentes: PreguntaFrecuente [] = [];
-
-    @Post('AnadirPregunta')
+    @Post('AnadirPregunta') 
     anadirPregunta(@Body() bodyParams) {
         const preguntaFrecuente = new PreguntaFrecuente(bodyParams.pregunta, bodyParams.respuesta);
-        this.preguntasFrecuentes.push(preguntaFrecuente);
-        return this.preguntasFrecuentes;
+        this._preguntasFrecuentes.push(preguntaFrecuente);
+        return this._preguntasFrecuentes;
     }
 
     @Get('MostrarPreguntas')
     mostrarPreguntas(): String{
         let mostrarHtml = "";
 
-        let res = this.preguntasFrecuentes.forEach(
+        let res = this._preguntasFrecuentes.forEach(
             (valorDelArreglo) => {
                 let html = fs.readFileSync(__dirname + '/html/listaPreguntas.html', 'utf8',);
                 html = html.replace('{{pregunta}}', valorDelArreglo.pregunta);
